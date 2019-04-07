@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Linux Shell Note (1)"
+title:      "Linux Shell Note - 入门"
 subtitle:   "Shell 基础"
 date:       2019-03-14
 author:     "楚河"
@@ -10,8 +10,8 @@ tags:
 ---
 
 
-# Liunx Shell 基础知识篇
-> 全篇碎碎念，个人的备忘录
+# Liunx Shell 入门
+> 全篇碎碎念，个人的备忘录
 
 ### shell基础：
 基础字符
