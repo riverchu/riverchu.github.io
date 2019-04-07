@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Linux Shell Note （1）"
-subtitle:   "Shell 基础"
+title:      "Linux Shell Note (1)"
+subtitle:   "Shell 基础"
 date:       2019-03-14
 author:     "楚河"
 header-img: "img/post-bg-unix-linux.jpg"
@@ -9,7 +9,8 @@ tags:
     - Linux
 ---
 
-# Liunx Shell 基础知识
+
+# Liunx Shell 基础知识篇
 > 全篇碎碎念，个人的备忘录
 
 ### shell基础：
