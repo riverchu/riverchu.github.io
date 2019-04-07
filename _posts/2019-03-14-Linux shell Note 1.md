@@ -15,7 +15,7 @@ tags:
 
 ### shell基础：
 基础字符
-```
+```
 #   表示root
 $   表示普通用户
 $#  表示返回所有脚本参数的个数。
@@ -159,7 +159,7 @@ echo "10^10" | bc
 1 --- stdout即：/dev/stdout       
 2 --- stderr即：/dev/stderr       
 
-**重定向符 > 与 >>**
+**重定向符 > 与 >>**
 ```shell
 echo 'test' > temp.txt
 echo 'another test' >> temp.txt
