@@ -1,0 +1,14 @@
+### Jekyll ###
+_site/
+.sass-cache/
+.jekyll-metadata
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+*/.DS_Store
+*/*/.DS_Store
+
+*.sh
+node_modules
