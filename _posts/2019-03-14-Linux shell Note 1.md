@@ -61,13 +61,12 @@ echo命令
 ```shell
 -n # 忽略换行符
 -e # 转义字符串中字符("1\t2" 转义\t)
-: '颜色：
-    字：  重置0 黑色30 红色31 绿色32 黄色33 蓝色34 洋红35 青色36 白色37
-    背景：重置0 黑色40 红色41 绿色42 黄色43 蓝色44 洋红45 青色46 白色47
-\e[1;31m \e[0m 字符红色
-\e[1;42m \e[0m 背景绿色
-'
-```
+```     
+字符颜色：  重置0 黑色30 红色31 绿色32 黄色33 蓝色34 洋红35 青色36 白色37  
+背景颜色：重置0 黑色40 红色41 绿色42 黄色43 蓝色44 洋红45 青色46 白色47  
+eg.   
+`\e[1;31m ABC \e[0m` 字符设置为红色    
+`\e[1;42m ABC \e[0m` 背景设置为绿色
 
 查看与获取变量
 ```shell
@@ -103,7 +102,7 @@ prepend() { [ -d "$2" ] && eval $1=\"$2\$\{$1:+':'\$$1\}\" && export $1;}
 ```
 
 ### shell中数学运算
-eg.
+原生操作
 ```shell
 #!/bin/bash
 no1=4;
@@ -155,11 +154,14 @@ echo "10^10" | bc
 
 
 ### 文件重定向
-0 --- stdin即：/dev/stdin     
-1 --- stdout即：/dev/stdout       
-2 --- stderr即：/dev/stderr       
+**文件描述符**
+```
+STDIN  (0): 标准输入，位置 /dev/stdin, 缺省为键盘，也可以是文件或其他命令的输出
+STDOUT (1): 标准输出，位置 /dev/stdout, 缺省为 Terminal，也可以是文件
+STDERR (2): 标准错误，位置 /dev/stderr, 缺省为 Terminal，也可以是文件  
+```
 
-**重定向符 > 与 >>**
+**重定向符 `>` 与 `>>`**
 ```shell
 echo 'test' > temp.txt
 echo 'another test' >> temp.txt
@@ -179,18 +181,17 @@ tee -a  # 追加模式
 tee -   # 使用stdin作为输入
 ```
 
-**重定向符 < 与 <<**   
+**重定向符 `<` 与 `<<`**   
 1. 从文件中读取作为输入: `cmd < file`
 
 2. 脚本文件内部进行重定向
 ```
-#!/bin/bash
+# 可将cat的EOF两行间内容输出到log.txt文件内部   
 cat<<EOF>log.txt
 LOG FILE HEADER
 This is a test log file
 Function:System statistics
 EOF
-# 运行脚本可将cat的EOF两行间内容输出到log.txt文件内部    
 ```
 
 ### 自定义文件描述符        
@@ -198,7 +199,7 @@ EOF
 ```shell
 echo this is a test line > input.txt
 exec 3<input.txt    # 将3定义为文件描述符
-cat<&3              # 使用3进行文件读取,使用后需要重新定义文件描述符3
+cat <&3              # 使用3进行文件读取,使用后需要重新定义文件描述符3
 ```
 
 - **写入（截断模式）**
@@ -274,6 +275,10 @@ tput bold
 tput smu1
 tput rmu1
 
+# 记录光标位置
+tput sc
+# 恢复光标位置
+tput rc
 # 删除从当前光标到行尾的所有内容
 tput ed
 ```
@@ -311,7 +316,6 @@ date "+%d %B %Y"
 date -s "21 June 2009 11:01:22"
 
 # 计算命令花费的时间
-#!/bin/bash
 start=$(date +%s)
 commands;
 statements;
@@ -340,10 +344,10 @@ table th{
 
 ### 循环脚本
 ```shell
-#!/bin/bash
 echo -n Count:
 tput sc
 count=0;
+
 while True;
 do
     if [$count -lt 40];
@@ -354,12 +358,8 @@ do
         tput ed
         echo -n $count;
     else exit 0;
-    fi
-done
-
-tput sc # 记录光标位置
-tput rc # 恢复光标位置
-tput ed # 删除光标至行尾的所有字符
+    fi # if done
+done;
 ```
 
 ### 调试信息
@@ -373,12 +373,11 @@ do
     set -x
     echo $i
     set +x
-done
-echo "Script executed"
+done;
 ```
 
 ### 自定义调试
-```shell
+```bash
 function DEBUG()
 {
     [ "$_DEBUG" == "on" ] && $@ ||:
@@ -434,11 +433,12 @@ F() { echo $1; F hello; sleep 1;}
 
 # 导出函数
 export -f fname
+
 # 读取命令返回值
 cmd;
 echo $?;
 
-#!/bin/bash
+# 判断命令是否执行成功
 CMD="command"
 $CMD
 if [ $? -eq 0];
@@ -456,14 +456,14 @@ command file -pvk 1
 ```
 
 ### 将命令的输出存入变量
-```shell
+```bash
 ls | cat -n > out.txt
 
 cmd_output=$(ls | cat -n) # 或 `ls | cat -n`
 echo $cmd_output
 ```
 
-**子shell**
+### 子shell
 1. 子shell
 ```shell
     pwd;
@@ -477,26 +477,19 @@ out = "$(cat text.txt)"
 echo $out
 ```
 
-### 不使用回车读取n个字符
+### read命令
 ```shell
 read -n number var      # 读取number个字符存储进var
 read -s var             # 无回显方式读入
 read -p "Enter input:" var # 提示信息
 read -t timeout var     # 在限时timeout内读取输入 单位s
 read -d delim_char var  # 用定界符作为输入的结束
-#eg.
+# eg.
 read -d ":" var
 ```
 
 ### 运行命令直至执行成功
 ```shell
-repeat(){
-    while true
-    do
-        $@ && return
-    done
-}
-
 repeat() { while true; do $@ && return; done }
 ```
 
@@ -512,7 +505,7 @@ IFS=,
 for item in $data;
 do
     echo item: $item
-done
+done;
 IFS=$oldIFS
 
 # 迭代产生数组
@@ -531,29 +524,31 @@ for ((i=0;i<10;i++))
 while condition
 do
     commands;
-done
+done;
 
 x=0;
 until [ $x -eq 9 ]; # 在满足条件前循环
 do
     let x++;echo $x;
-done
+done;
 ```
 
 ### 逻辑流程
 ```shell
 if condition;
-then
+then   
     commands;
 fi
 
-if condition;
+# 或
+if condition;  
+then  
+    commands;  
+else if condition;
 then
-    commands;
-else if condition; then
-    commands;
-else
-    commands;
+    commands;  
+else  
+    commands;  
 fi
 ```     
 技巧：
