@@ -3,7 +3,7 @@ layout:     post
 title:      "Welcome to CR Blog"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2019-04-01
-author:     "楚河"
+author:     "ChuRiver"
 header-img: "img/post-bg-2015.jpg"
 tags:
     - 生活
