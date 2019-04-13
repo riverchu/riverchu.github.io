@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Unix Linux Note"
-subtitle:   "Blog模板作者的一篇碎碎念"
+subtitle:   "大佬的一篇碎碎念"
 date:       2019-04-02
 author:     "Hux"
 header-img: "img/post-bg-unix-linux.jpg"
