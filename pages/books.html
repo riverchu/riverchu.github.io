@@ -7,7 +7,7 @@ header-img: "img/books-bg.jpg"
 
 {% for book in site.data.books %}
 <div class="book-preview">
-    <a href="{{ book.url }}">
+    <a href="{{ book.url | prepend: site.baseurl }}">
         <h4 class="post-title">
             {{ book.title }}
         </h4>
