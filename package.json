@@ -1,9 +1,9 @@
 {
-    "name": "hux-blog",
-    "title": "Hux Blog",
+    "name": "churiver-blog",
+    "title": "CR Blog",
     "version": "1.0.0",
-    "homepage": "http://huxpro.github.io",
-    "author": "Hux",
+    "homepage": "http://riverchu.github.io",
+    "author": "Chu River",
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~0.11.4",
@@ -13,10 +13,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Huxpro/huxpro.github.io"
+        "url": "https://github.com/riverchu/riverchu.github.io"
     },
     "scripts": {
-        "preview": "cd _site; python -m SimpleHTTPServer 8020",
+        "preview": "cd _site; python -m http.server 8020",
         "watch": "grunt watch & npm run preview & jekyll serve -w;"
     }
 }
