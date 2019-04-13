@@ -1,5 +1,5 @@
 ---
-layout:     keynote
+layout:     keynote-import
 title:      "Example Post using Keynote Layout"
 subtitle:   "Keynote: JavaScript Modularization Journey"
 iframe:     "http://huangxuan.me/js-module-7day/"
