@@ -25,10 +25,31 @@ facebook_username:  haha
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","drafts","README.md","Gemfile","Gemfile.lock"]
+include: ["pages"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
+collections:
+  keynotes:
+    output: true
+    permalink: /keynotes/:path/
 
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "keynotes"
+    values:
+      layout: "keynote"
+  - scope:
+      path: ""
+      type: "series"
+    values:
+      layout: "series"
 
 # Plugins
 # from PR#40, to support local preview for Jekyll 3.0
