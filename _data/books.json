@@ -1,31 +1,31 @@
 [{
         "title": "Go Notebook",
         "subtitle": "The Go programming Language",
-        "url": "/GoNote/publish",
+        "url": "/GoNote/",
         "description": "Go语言圣经及其他的读书笔记"
     },
     {
         "title": "Python Notebook",
         "subtitle": "Python3.x版本",
-        "url": "/PythonNote/publish",
+        "url": "/PythonNote/",
         "description": "python随笔乱记"
     },
     {
         "title": "C Notebook",
         "subtitle": "Oh My C Language",
-        "url": "/CNote/publish",
+        "url": "/CNote/",
         "description": "C语言圣经及其他的读书笔记, 回炉重造"
     },
     {
         "title": "Linux Notebook",
         "subtitle": "Linux 内核及其他",
-        "url": "/LinuxNote/publish",
+        "url": "/LinuxNote/",
         "description": "C语言圣经及其他的读书笔记, 回炉重造"
     },
     {
         "title": "Algorithm Notebook",
         "subtitle": "小算法笔记",
-        "url": "/AlgoNote/publish",
+        "url": "/AlgoNote/",
         "description": "leetcode前200题详解和实现"
     },
 ]
