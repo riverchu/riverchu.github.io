@@ -1,24 +1,31 @@
 [{
-        "title": "python3 Notebook",
-        "url": "/TutorialForPython/",
-        "description": "python3随笔乱记"
+        "title": "Go Notebook",
+        "subtitle": "The Go programming Language",
+        "url": "/GoNote/",
+        "description": "Go语言圣经及其他的读书笔记"
     },
     {
-        "title": "Javascript Notebook",
-        "subtitle": "js语法和相关技术",
-        "url": "/TutorialForJavascript/",
-        "description": "介绍基本的ES6语法和相关技术,主要是web技术"
+        "title": "Python Notebook",
+        "subtitle": "Python3.x版本",
+        "url": "/PythonNote/",
+        "description": "python随笔乱记"
     },
     {
-        "title": "Golang Notebook",
-        "subtitle": "Go语言后端微服务搭建",
-        "url": "/TutorialForGoLang/",
-        "description": "介绍基本的Go语言数据结构与算法实现以及后端微服务搭建方案"
+        "title": "C Notebook",
+        "subtitle": "Oh My C Language",
+        "url": "/CNote/",
+        "description": "C语言圣经及其他的读书笔记, 回炉重造"
     },
     {
-        "title": "C Language Notebook",
-        "subtitle": "C语言简单介绍",
-        "url": "/TutorialForCLang/",
-        "description": "介绍基本的Go语言数据结构与算法实现以及后端微服务搭建方案"
-    }
+        "title": "Linux Notebook",
+        "subtitle": "Linux 内核及其他",
+        "url": "/LinuxNote/",
+        "description": "C语言圣经及其他的读书笔记, 回炉重造"
+    },
+    {
+        "title": "Algorithm Notebook",
+        "subtitle": "小算法笔记",
+        "url": "/AlgoNote/",
+        "description": "leetcode前200题详解和实现"
+    },
 ]
