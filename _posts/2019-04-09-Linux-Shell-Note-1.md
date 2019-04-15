@@ -7,6 +7,7 @@ author:     "ChuRiver"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
     - Linux
+    - Shell
 ---
 
 > 全篇碎碎念，个人的备忘录
