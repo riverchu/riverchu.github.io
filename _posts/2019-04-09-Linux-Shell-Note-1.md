@@ -9,11 +9,33 @@ tags:
     - Linux
 ---
 
-
-# Liunx Shell 入门
 > 全篇碎碎念，个人的备忘录
 
-### shell基础：
+## Catagory
+
+- [基础](#基础)     
+- [数学运算](#数学运算)   
+- [文件重定向](#文件重定向)     
+    - [自定义文件描述符](#自定义文件描述符)   
+- [数组](#数组)   
+    - [关联数组](#关联数组)   
+- [别名](#别名)   
+- [tput](#tput)   
+- [stty](#stty)   
+- [日期和时延](#日期和时延)   
+- [循环脚本](#循环脚本)   
+- [调试信息](#调试信息)  
+    - [自定义调试](#自定义调试)  
+- [函数和参数](#函数和参数)  
+- [存储输出](#将命令的输出存入变量)  
+- [子shell](#子shell)  
+- [read命令](#read命令)  
+- [循环执行命令](#循环执行命令)  
+- [字段分隔符和迭代器](#字段分隔符和迭代器)  
+- [逻辑流程](#逻辑流程)  
+- [判断](#判断)  
+
+## 基础：
 基础字符
 ```
 #   表示root
@@ -101,7 +123,7 @@ prepend() { [ -d "$2" ] && eval $1=\"$2':'\$$1\" && export $1; }
 prepend() { [ -d "$2" ] && eval $1=\"$2\$\{$1:+':'\$$1\}\" && export $1;}
 ```
 
-### shell中数学运算
+## 数学运算
 原生操作
 ```shell
 #!/bin/bash
@@ -153,7 +175,7 @@ echo "10^10" | bc
 ```
 
 
-### 文件重定向
+## 文件重定向
 **文件描述符**
 ```
 STDIN  (0): 标准输入，位置 /dev/stdin, 缺省为键盘，也可以是文件或其他命令的输出
@@ -216,7 +238,7 @@ echo appended line >&5
 cat output.txt
 ```
 
-### 数组
+## 数组
 ```shell
 array_var=(1 2 3 4 5 6)
 # 或
@@ -248,12 +270,13 @@ echo ${!array_var[*]}
 echo ${!array_var[@]}
 ```
 
-### 别名
+## 别名
 设置别名：`alias new_command='command sequence'`  
 取消别名：`unalias`  
 忽略别名：`\command`
 
-### tput - 获取终端信息
+## tput
+获取终端信息
 ```shell
 # 打印行数列数
 tput cols   
@@ -283,7 +306,8 @@ tput rc
 tput ed
 ```
 
-### stty - 禁止回显密码内容
+## stty
+禁止回显密码内容
 ```shell
 #!/bin/sh
 # Filename: password.sh
@@ -295,7 +319,7 @@ echo
 echo Password read.
 ```
 
-### 日期和时延
+## 日期和时延
 ```shell
 # 日期
 date
@@ -342,7 +366,7 @@ table th{
 纳秒|%N(695208515)
 纪元时|%s
 
-### 循环脚本
+## 循环脚本
 ```shell
 echo -n Count:
 tput sc
@@ -362,7 +386,7 @@ do
 done;
 ```
 
-### 调试信息
+## 调试信息
 ```shell
 bash -x script.sh #启用跟踪调试功能
 
@@ -397,7 +421,7 @@ set +v  #禁止打印输入
 #!/bin/bash -xv
 ```
 
-### 函数和参数
+## 函数和参数
 ```shell
 # 定义函数
 function fname()
@@ -455,7 +479,7 @@ command -vpk 1 file
 command file -pvk 1
 ```
 
-### 将命令的输出存入变量
+## 将命令的输出存入变量
 ```bash
 ls | cat -n > out.txt
 
@@ -463,7 +487,7 @@ cmd_output=$(ls | cat -n) # 或 `ls | cat -n`
 echo $cmd_output
 ```
 
-### 子shell
+## 子shell
 1. 子shell
 ```shell
     pwd;
@@ -477,7 +501,7 @@ out = "$(cat text.txt)"
 echo $out
 ```
 
-### read命令
+## read命令
 ```shell
 read -n number var      # 读取number个字符存储进var
 read -s var             # 无回显方式读入
@@ -488,7 +512,7 @@ read -d delim_char var  # 用定界符作为输入的结束
 read -d ":" var
 ```
 
-### 运行命令直至执行成功
+## 循环执行命令
 ```shell
 repeat() { while true; do $@ && return; done }
 ```
@@ -496,7 +520,7 @@ repeat() { while true; do $@ && return; done }
 true为一个二进制文件，每次调用会开启进程 使用：代替会较快     
 eg: `while :; do ; done`
 
-### 字段分隔符和迭代器
+## 字段分隔符和迭代器
 ```shell
 # DIY分隔符
 data="name,sex,rollon,location"
@@ -533,7 +557,7 @@ do
 done;
 ```
 
-### 逻辑流程
+## 逻辑流程
 ```shell
 if condition;
 then   
@@ -555,7 +579,7 @@ fi
 - `[condition] && action; `condition为真则 执行action
 - `[condition] || action; `condition为假，则执行action
 
-### 判断
+## 判断
 **变量比较**
 ```shell
 # ! 表否定 (和变量之间无空格有其他意义)   
