@@ -99,7 +99,7 @@ FIFO|p
 
 unix系统没有创建时间的概念,所以不存在相应参数。
 
-ex.
+e.g.
 ```shell
 # -7    7天内被访问的文件
 # 7     正好7天前访问的文件
@@ -115,7 +115,7 @@ find . -type f -atime -7 -print
 
 -newer参数指定参考文件      
 
-ex.
+e.g.
 ```shell
 # 找出修改时间比file.txt新的所有文件
 find . -type f -newer file.txt -print
@@ -133,7 +133,7 @@ find . -type f -newer file.txt -print
 1024K字节|M    
 1024M字节|G
 
-ex.
+e.g.
 ```shell
 find . -type f -size +2k # 单位kb
 ```
@@ -151,7 +151,7 @@ find . -type f -user root -print # 所有者为root的文件 root可用uid代替
 
 ### 执行命令或动作
 用'+'代替';'可以将文件拼接为一个参数执行
-ex.
+e.g.
 ```shell
 find . -type f -user root -exec chown river {} \; # 变更文件所有者
 find . -type f -name "*.txt" -exec printf "%s" {} \;
@@ -175,7 +175,7 @@ cat example.txt|xargs -n 3 #指定每行的最大参数数量
 echo "123x123x123" | xargs -d x #指定定界符为x，将其替换为空格
 ```
 
-ex.
+e.g.
 ```shell
 cat args.txt | xargs -n 1 ./test.sh # cat的输出每个参数都作为test.sh的参数执行
 cat args.txt | xargs -I {} ./test.sh -p {} -l # -I指定替换的字符串{}
@@ -188,7 +188,7 @@ cat files.txt | ( while read arg; do cat $arg; done ) # 替换cat $arg可以一�
 ## tr
 
 命令格式：`tr [options] set1 set2`   
-ex.
+e.g.
 ```shell
 echo "HELLO WORLD" | tr 'A-Z' ‘a-z' # 字符集合 'ABD-}' 'aA.,' 'a-ce-x' 'a-c0-9' 不连续的字符会被视为三个字符 \t \n也可使用
 ```
@@ -246,7 +246,7 @@ space|空白字符
 upper|大写字母
 xdifit|十六进制数字
 
-ex.
+e.g.
 ```shell
 tr '[:lower:]' '[:upper:]'
 ```
@@ -255,10 +255,10 @@ tr '[:lower:]' '[:upper:]'
 
 ### md5sum
 计算：`md5sum filename`   
-ex. `md5sum file1 file2 file3`    
+e.g. `md5sum file1 file2 file3`    
 
 校验：`md5sum -c MD5_file`     
-ex. `md5sum -c *.md5`
+e.g. `md5sum -c *.md5`
 
 类似的还有：`shasum`、`sha1sum`、`sha256sum`
 
@@ -294,7 +294,7 @@ Usage: dgst [options] [file...]
  -engine_impl        Also use engine given by -engine for digest operations
 ```
 
-ex.
+e.g.
 ```shell
 openssl dgst -sha256 exec_file
 ```
@@ -465,7 +465,7 @@ look word dictfile
 
 ## 交互输入自动化
 expect命令可以进行交互操作    
-ex.1
+e.g.1
 ```shell
 echo -e "1\nhello\n" # -e 表示会解释转义序列
 echo -e \xeb\x1a
@@ -476,7 +476,7 @@ send "1\n" # 发送
 expect eof # 命令交互结束
 ```
 利用wait命令也可实现    
-ex.2
+e.g.2
 ```shell
 PIDARRAY=()
 for file in file1.iso fil2.iso
