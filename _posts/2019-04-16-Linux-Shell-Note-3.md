@@ -58,7 +58,7 @@ dd -if=/dev/zero -of=data.txt bs=1m count=1
 
 |只在A中出现的行|只在B中出现的行|A、B中相同的行|
 
-ex.
+e.g..
 ```shell
 comm A.txt B.txt        # 输出三行
 comm A.txt B.txt -1 -2  # 不显示第一列 只显示两文件中相同的行
