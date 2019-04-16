@@ -12,7 +12,7 @@ tags:
 
 本篇简单介绍一下shell上的基本命令
 
-## Catagory
+## Index
 
 - [cat](#cat)
 - [find](#find)
