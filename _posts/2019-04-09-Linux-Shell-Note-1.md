@@ -256,6 +256,10 @@ echo ${array_var[@]}
 
 # 打印数组长度
 echo ${#array_var[*]}
+
+# 遍历
+for {i=0;i<10;i++} { print $i; }
+for {i in array} { print array[i]; }
 ```
 
 ### 关联数组
