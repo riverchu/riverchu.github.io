@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Linux Shell Note(3)"
+title:      "Linux Shell Note 3"
 subtitle:   "Shell 文件操作"
 data:       2019-04-16
 author:     "ChuRiver"

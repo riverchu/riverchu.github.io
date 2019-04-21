@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Linux Shell Note(1)"
+title:      "Linux Shell Note 1"
 subtitle:   "Shell 入门"
 date:       2019-04-09
 author:     "ChuRiver"
