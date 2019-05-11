@@ -448,7 +448,7 @@ proxies = {'http://10.20.1.128': 'http://10.10.1.10:5323'}
 
 注意，代理 URL 必须包含连接方式。
 
-## SOCKS
+### SOCKS
 2.10.0 新版功能.
 
 除了基本的HTTP代理，Request还支持SOCKS协议的代理。这是一个可选功能，若要使用，需要安装第三方库。
@@ -469,7 +469,7 @@ proxies = {
 ## 合规性
 Requests符合所有相关的规范和RFC，这样不会为用户造成不必要的困难。但这种对规范的考虑导致一些行为对于不熟悉相关规范的人来说看似有点奇怪。
 
-## 编码方式
+### 编码方式
 当收到一个响应时，Requests会猜测响应的编码方式，用于在调用[Response.text](http://cn.python-requests.org/zh_CN/latest/api.html#requests.Response.text)方法时对响应进行解码。Requests首先在HTTP头部检测是否存在指定的编码方式，如果不存在，则会使用[charade](http://pypi.python.org/pypi/charade)来尝试猜测编码方式。
 
 只有当HTTP头部不存在明确指定的字符集，并且`Content-Type`头部字段包含`text`值之时，Requests才不去猜测编码方式。在这种情况下，[RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.7.1) 指定默认字符集必须是`ISO-8859-1`。Requests遵从这一规范。如果需要一种不同的编码方式，可以手动设置[Response.encoding](http://cn.python-requests.org/zh_CN/latest/api.html#requests.Response.encoding)属性，或使用原始的[Response.content](http://cn.python-requests.org/zh_CN/latest/api.html#requests.Response.content)。
@@ -657,7 +657,7 @@ Request 允许用户创建和使用他们自己的传输适配器，实现他们
 
 传输适配器的众多实现细节不在本文档的覆盖范围内，不过可以看看接下来这个简单的 SSL 用例。更多的用法，也许该考虑为[BaseAdapter](http://cn.python-requests.org/zh_CN/latest/api.html#requests.adapters.BaseAdapter)创建子类。
 
-## 示例: 指定SSL版本
+### 示例: 指定SSL版本
 Requests 开发团队刻意指定了内部库（[urllib3](https://github.com/shazow/urllib3)）的默认 SSL 版本。一般情况下这样做没有问题，不过可能会需要连接到一个服务节点，而该节点使用了和默认不同的 SSL 版本。
 
 可以使用传输适配器解决这个问题，通过利用 HTTPAdapter 现有的大部分实现，再加上一个 ssl_version 参数并将它传递到 urllib3 中。会创建一个传输适配器，用来告诉 urllib3 让它使用 SSLv3：
