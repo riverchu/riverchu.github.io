@@ -27,9 +27,9 @@ tags:
 
 ## wget
 命令格式：`wget URL`     
-参数：
-    -O 指定输出文件名
-    -o 指定输出日志信息保存的文件名
+参数：  
+    `-O` 指定输出文件名  
+    `-o` 指定输出日志信息保存的文件名  
 e.g.    
 ```bash
 wget URL -O output.file -o log.file
@@ -63,10 +63,10 @@ wget --mirror --convert-links URL
 wget -r -N -l -k DEPTH URL # 效果同上
 ```
 参数解释：  
-    -l depth 指定下载页面最深层级
-    -r 配合-l遍历所有界面
-    -N 使用文件的时间戳
-    -k 或 --convert-links 表示将页面内地址转为本地地址
+    `-l depth` 指定下载页面最深层级  
+    `-r` 配合-l遍历所有界面  
+    `-N` 使用文件的时间戳  
+    `-k` 或 `--convert-links` 表示将页面内地址转为本地地址  
 
 提供认证信息
 ```bash
@@ -169,7 +169,7 @@ if [ $# -ne 3];
 then
     echo "Usage: $0 URL -d DIRECTORY"
     exit -1
-fi
+fi #
 
 # 遍历1-4个参数
 for i in {1..4}
@@ -258,7 +258,7 @@ if [[ "$1" != "read" ]] && [[ "$1" != "tweet" ]];
 then
     echo -e "Usage: $0 tweet status_message\n OR\n $0 read\n"
     exit -1;
-fi
+fi #
 
 source TwitterOAuth.sh # 使用库
 TO_init # 库初始化
@@ -268,8 +268,8 @@ if [ ! -e $config_file ]; then
     if (( $? == 0 )); then
         echo oauth_token=${TO_ret[0]} > $config_file
         echo oauth_token_secret=${TO_ret[1]} >> $config_file
-    fi
-fi
+    fi #
+fi #
 
 source $config_file
 if [[ "$1" = "read" ]];
@@ -295,7 +295,7 @@ if [ $# -ne 2 ];
 then
     echo -e "Usage: $0 WORD NUMBER"
     exit -1;
-fi
+fi #
 
 curl -s URL/$1?key=$apikey | grep -o \<dt\>.*\</dt\> | sed 's$</*[a-z]*>$$g' | head -n $2 | nl
 ```
@@ -327,7 +327,7 @@ do
     then
         echo $link;
         let count++
-    fi
+    fi #
 done < links.txt
 
 [ $count -eq 0 ] && echo No broken links found.
@@ -340,14 +340,14 @@ if [ $# -ne 1];
 then
     echo -e "Usage: $0 URL\n"
     exit 1;
-fi
+fi #
 
 first_time=0
 
 if [ ! -e "last.html" ];
 then
     first_time=1
-fi
+fi #
 
 curl --silent $1 -o recent.html
 
@@ -360,10 +360,10 @@ then
         echo "$changes"
     else
         echo -e "\nWebsite has no changes"
-    fi
+    fi #
 else
     echo "[First run] Archiving.."
-fi
+fi #
 
 cp recent.html last.html
 ```
