@@ -22,6 +22,7 @@ tags:
 - [rsync备份快照系统](#rsync备份快照系统)
 - [利用git备份](#利用git备份)
 - [fsarchiver全盘镜像创建](#fsarchiver全盘镜像创建)
+- [dd全盘备份](#dd全盘备份)
 
 
 ## tar归档
@@ -351,4 +352,18 @@ fsarchiver restfs backup.fsa id=0,dest=/dev/sda1 # id指定归档文件中的第
 从备份文档中恢复多个分区
 ```bash
 fsarchiver restfs backup.fsa id=0,dest=/dev/sda1 id=1,dest=/dev/sdb1
+```
+
+## dd全盘备份
+
+备份
+```bash
+dd -if=/dev/sda -of=/dev/sdb
+dd -if=/dev/sda1 -of=~/sda1.img
+```
+
+恢复
+```bash
+dd -if=/dev/sdb -of=/dev/sda
+dd -if=~/sda1.img -of=/dev/sda1
 ```
