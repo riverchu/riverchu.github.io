@@ -29,9 +29,7 @@ tags:
 - [网络流量与端口分析](#网络流量与端口分析)
 - [创建套接字](#创建套接字)
 - [互联网连接共享](#互联网连接共享)
-- [](#)
-- [](#)
-- [](#)
+- [iptables防火墙](#iptables防火墙)
 
 ## 网络配置
 
@@ -348,7 +346,7 @@ iptables -A POSTROUTING -t nat -j MASQUERADE
 ```
 
 
-## iptable防火墙
+## iptables防火墙
 阻塞指定ip
 ```bash
 iptables -A OUTPUT -d 8.8.8.8 -j DROP
