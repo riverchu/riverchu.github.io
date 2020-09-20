@@ -5,6 +5,12 @@
         "description": "Go语言圣经及其他的读书笔记"
     },
     {
+        "title": "Security Notebook",
+        "subtitle": "About security",
+        "url": "/SecNote/",
+        "description": "security小书"
+    },
+    {
         "title": "Python Notebook",
         "subtitle": "Python3.x版本",
         "url": "/PythonNote/",
@@ -27,5 +33,5 @@
         "subtitle": "小算法笔记",
         "url": "/AlgoNote/",
         "description": "leetcode前200题详解和实现"
-    },
+    }
 ]
