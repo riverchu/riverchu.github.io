@@ -1,4 +1,11 @@
-[{
+[
+    {
+        "title": "Code Notebook",
+        "subtitle": "Everything about code",
+        "url": "/CodeNote/",
+        "description": "代码手帐"
+    },
+    {
         "title": "Go Notebook",
         "subtitle": "The Go programming Language",
         "url": "/GoNote/",
